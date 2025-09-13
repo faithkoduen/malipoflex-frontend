@@ -125,7 +125,7 @@ export default function ResponsiveLayout() {
       <main
         className="bg-gray-50 min-h-screen p-6 transition-all duration-300 ease-in-out"
         style={{
-          marginLeft: pathname === '/' ? '256px' : '192px',
+          marginLeft: pathname === '/' ? '255px' : '192px',
           marginTop: headerHeight,
         }}
       >
