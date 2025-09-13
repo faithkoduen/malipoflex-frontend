@@ -1,5 +1,4 @@
 import Image from "next/image";
-import malipoflexLogo from "../assets/malipoflex-logo.png";
 import Sidebar from "./shared-components/sidebar";
 export default function Home() {
   return (
