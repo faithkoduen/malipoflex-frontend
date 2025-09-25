@@ -18,6 +18,8 @@
 import Header from "./shared-components/header";
 import Sidebar from "./shared-components/sidebar";
 import Button from "./shared-components/Button";
+import { LoansManagement } from "./loanmanagement/LoansManagement";
+
 
 export default function Page() {
   const handleClick = () => alert('Clicked');
@@ -25,10 +27,11 @@ export default function Page() {
   return (
     <>
       <Header />
-      <Sidebar />
+       {/* <Sidebar /> */}
       {/* <Button className="mx-auto pr-3.5" buttonText="Click me" variant="primary" onClickHandler={handleClick} /> */}
-      <Button variant="primary" buttonText="Approve & Disburse" onClickHandler={() => {}} />
-      <Button variant="secondary" buttonText="Reject Application" onClickHandler={() => {}} />
+      {/* <Button variant="primary" buttonText="Approve & Disburse" onClickHandler={() => {}} />
+      <Button variant="secondary" buttonText="Reject Application" onClickHandler={() => {}} /> */} 
+       <LoansManagement/>
 
     </>
   );
