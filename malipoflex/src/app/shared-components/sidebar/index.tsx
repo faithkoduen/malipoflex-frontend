@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import {
   FiGrid,
@@ -36,7 +36,7 @@ export default function ResponsiveLayout() {
   const headerHeight = 56; 
 
  
-  const isActive = (href) => pathname === href || pathname.startsWith(href + '/');
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
   return (
     <>
