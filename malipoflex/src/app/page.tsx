@@ -1,10 +1,25 @@
+import ForgotPasswordPage from "./authentication/forgot-password/page";
+
+
 import Image from "next/image";
-import malipoflexLogo from "../assets/malipoflex-logo.png";
-import Sidebar from "./shared-components/sidebar";
+import TeaserScreen from "./Teaser/page";
+import LoginPage from "./authentication/login/page";
+import Onboarding from "./Onboarding/page";
+import Register from "./authentication/register/page";
+
+import Getstarted from "./GetStarted/page";
+import SignUpPage from "./authentication/register/page";
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <Sidebar />
+    <div>
+     {/* <Register/> */}
+      {/* <Sidebar /> */}
+       {/* <TeaserScreen/> */}
+      {/* <Getstarted/>  */}
+       {/* <SignUpPage/> */}
+      {/* <LoginPage/>  */}
+      <TeaserScreen/>
+       
     </div>
   );
 }
