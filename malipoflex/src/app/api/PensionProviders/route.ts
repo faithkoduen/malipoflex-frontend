@@ -1,10 +1,8 @@
-// const baseUrl = process.env.BASE_URL || "https://malipo-flex-7bced59326f9.herokuapp.com/api/";
-
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl = process.env.BASE_URL 
 
 export async function GET() {
   try {
-    const response = await fetch(`${baseUrl}transactions/`);
+    const response = await fetch(`${baseUrl}pensionProvider/`);
     if (!response.ok) {
       throw new Error("Failed to fetch transactions : " + response.statusText);
     }

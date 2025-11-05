@@ -11,7 +11,7 @@ import {
   LineChart,
   Line,
 } from "recharts";
-import { useFetchSavingsContributions } from "@/app/hooks/useFetchSavingContributions";
+import { useFetchSavings } from "@/app/hooks/useFetchSavingContributions";
 import { useFetchLoans } from "@/app/hooks/useFetchLoans";
 import { useFetchUsers } from "@/app/hooks/useFetchUsers";
 
@@ -29,15 +29,11 @@ function sumByMonth(arr:any, getValue:any, dateField = "created_at") {
 }
 
 export default function DashboardGraphs() {
-  const { data: savingsContributions = [], loading: loadingSavings } = useFetchSavingsContributions();
+  const { contributions, loading, error } = useFetchSavings();
   const { data: loans = [], loading: loadingLoans } = useFetchLoans();
   const { data: users = [], loading: loadingUsers } = useFetchUsers();
 
-  if (loadingSavings || loadingLoans || loadingUsers) {
-    return <div className="text-center py-8 text-gray-500 text-lg">Loading charts...</div>;
-  }
-
-  const savingsByMonth = sumByMonth(savingsContributions, (s:any) => Number(s.contributed_amount));
+  const savingsByMonth = sumByMonth(contributions, (s:any) => Number(s.contributed_amount));
   const loansByMonth = sumByMonth(loans, (l:any) => Number(l.requested_amount), "requested_at");
 
   const usersByMonth = sumByMonth(users, () => 1, "created_at");

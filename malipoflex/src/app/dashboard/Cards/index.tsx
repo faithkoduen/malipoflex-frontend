@@ -3,17 +3,17 @@
 import React from "react";
 import { useFetchUsers } from "@/app/hooks/useFetchUsers";
 import { useFetchLoans } from "@/app/hooks/useFetchLoans";
-import { useFetchSavingsContributions } from "@/app/hooks/useFetchSavingContributions";
+import { useFetchSavings } from "@/app/hooks/useFetchSavingContributions";
 
 export default function DashboardCards() {
   const { data: users = [], loading: loadingUsers } = useFetchUsers();
   const { data: loans = [], loading: loadingLoans } = useFetchLoans();
-  const { data: savingsContributions = [], loading: loadingSavings } = useFetchSavingsContributions();
+ const { contributions, loading, error } = useFetchSavings();
 
-  const totalSavings = savingsContributions.reduce((sum, s) => sum + Number(s.contributed_amount || 0), 0);
+  const totalSavings = contributions.reduce((sum, s) => sum + Number(s.contributed_amount || 0), 0);
   const outstandingLoan = loans.filter((l) => l.status !== "Paid").reduce((sum, l) => sum + Number(l.requested_amount || 0), 0);
   const totalMembers = users.length;
-  const totalPensions = savingsContributions.reduce((amount, p) => amount + Number(p.pension_amount || 0), 0);
+  const totalPensions = contributions.reduce((amount, p) => amount + Number(p.pension_amount || 0), 0);
 
   const cards = [
     { title: "Total savings", value: `Ksh ${totalSavings}` },

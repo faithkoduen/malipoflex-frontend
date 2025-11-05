@@ -1,9 +1,8 @@
-// const baseUrl = process.env.BASE_URL;
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl = process.env.BASE_URL;
 
 export async function GET() {
   try {
-    const response = await fetch(`${baseUrl}loanAccounts/`);
+      const response = await fetch(`${baseUrl}loanAccounts/`);
     if (!response.ok) {
       return new Response("Failed to fetch loans", { status: response.status });
     }

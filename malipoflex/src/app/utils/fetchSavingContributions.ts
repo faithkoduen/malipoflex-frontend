@@ -1,17 +1,17 @@
-const baseUrl = '/api/savings';
+const baseUrl = '/api/savingsContributions';
 
-export async function FetchSavings() {
-  try {
-    const response = await fetch(baseUrl);
-    if (!response.ok) {
-      throw new Error('Something went wrong: ' + response.statusText);
-    }
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    throw new Error('Failed to fetch users: ' + (error as Error).message);
-  }
+export async function FetchAllSavingsContributions() {
+  const response = await fetch(baseUrl, { method: 'GET', cache: 'no-store' });
+  if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
+  return response.json();
 }
 
-
-
+export async function CreateSavingsContribution(contribution: any) {
+  const response = await fetch(baseUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(contribution),
+  });
+  if (!response.ok) throw new Error(`Failed to create: ${response.statusText}`);
+  return response.json();
+}

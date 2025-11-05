@@ -1,7 +1,19 @@
+'use client';
+
+
 import React, { useState } from "react"
 import { Search, ChevronRight } from "lucide-react"
+import { useFetchPendingLoans } from "../hooks/useFetchLoanaccount"
+import Sidebar from "../shared-components/sidebar"
+import { LoansDashboard } from "./LoansDashboard"
+import LoansModal from "./LoansModal"
+import PinModal from "./PinModal"
+import { Pagination } from "../shared-components/pagination"
+import { SearchInput } from "../shared-components/search"
+import { FilterDropdown } from "../shared-components/filter"
 
-export function LoansManagement() {
+
+export default function LoansManagement() {
   const { data: loans, loading, error } = useFetchPendingLoans()
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("")
@@ -75,7 +87,6 @@ export function LoansManagement() {
 
   const handleSendPin = (pin: string) => {
     setShowPinModal(false)
-    // Handle PIN submission logic here, then call backend to disburse loan
   }
 
   return (

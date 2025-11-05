@@ -2,9 +2,9 @@ const baseUrl = process.env.BASE_URL;
 
 export async function GET() {
   try {
-    const response = await fetch(`${baseUrl}users/`);
+       const response = await fetch(`${baseUrl}savingsContributions/`);
     if (!response.ok) {
-      throw new Error("Failed to fetch users: " + response.statusText);
+      throw new Error("Failed to fetch savings contributions: " + response.statusText);
     }
     const result = await response.json();
     return new Response(JSON.stringify(result), {
@@ -22,14 +22,14 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const response = await fetch(`${baseUrl}users/`, {
+    const response = await fetch(`${baseUrl}savingsContributions/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      throw new Error("Failed to post data: " + response.statusText);
+      throw new Error("Failed to post savings contribution: " + response.statusText);
     }
 
     const result = await response.json();
