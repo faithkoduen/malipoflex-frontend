@@ -1,19 +1,14 @@
-'use client';
-
-
 import React, { useState } from "react"
 import { Search, ChevronRight } from "lucide-react"
 import { useFetchPendingLoans } from "../hooks/useFetchLoanaccount"
-import Sidebar from "../shared-components/sidebar"
-import { LoansDashboard } from "./LoansDashboard"
-import LoansModal from "./LoansModal"
-import PinModal from "./PinModal"
-import { Pagination } from "../shared-components/pagination"
+import Sidebar from "../shared-components/sidebar/sidebar"
+import { LoansDashboard } from "../loanmanagement/LoansDashboard"
 import { SearchInput } from "../shared-components/search"
 import { FilterDropdown } from "../shared-components/filter"
-
-
-export default function LoansManagement() {
+import LoansModal from "../loanmanagement/LoansModal"
+import PinModal from "../loanmanagement/PinModal"
+import { Pagination } from "../shared-components/pagination"
+export function LoansManagement() {
   const { data: loans, loading, error } = useFetchPendingLoans()
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("")
@@ -30,13 +25,12 @@ export default function LoansManagement() {
     { label: "Approved", value: "APPROVED" },
     { label: "Disbursed", value: "DISBURSED" },
     { label: "Rejected", value: "REJECTED" },
-    // Add other statuses if needed
   ]
 
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex">
-        <Sidebar />
+        
         <div className="flex-1 p-8">Loading loans...</div>
       </div>
     )
@@ -87,6 +81,7 @@ export default function LoansManagement() {
 
   const handleSendPin = (pin: string) => {
     setShowPinModal(false)
+    // Handle PIN submission logic here, then call backend to disburse loan
   }
 
   return (

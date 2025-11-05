@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -32,7 +33,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-64 h-[94vh] bg-[#075D74] text-white flex flex-col">
+    <div className="hidden md:flex flex-col w-64 h-screen bg-[#075D74] text-white">
       <div className="flex flex-col flex-1 justify-between mt-4">
         <nav className="flex-1 mt-32">
           <ul>
@@ -41,7 +42,6 @@ export default function Sidebar() {
               const isActive =
                 pathname === item.path ||
                 (pathname === '/' && item.path === '/loans');
-
               return (
                 <li key={item.path} className="border-b border-[#0a6b84]">
                   <Link
@@ -60,8 +60,6 @@ export default function Sidebar() {
             })}
           </ul>
         </nav>
-
-       
         <div className="border-t border-[#0a6b84]">
           <button className="flex items-center space-x-3 px-6 py-2 w-full text-gray-200 hover:bg-[#0a6b84] hover:text-white transition-colors">
             <LogOut size={20} />

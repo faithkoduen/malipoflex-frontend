@@ -82,7 +82,7 @@ export default function MembersModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#7eb5c4a6] opacity-85 overflow-y-auto"
       onClick={() => setShowModal(false)}
     >
       <div
@@ -205,7 +205,7 @@ const InputField = ({
   required = false,
 }: InputFieldProps) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
+    <label className="block text-sm font-bold text-gray-700 mb-1">
       {label}
       {required && <span className="text-red-500 ml-1">*</span>}
     </label>

@@ -1,6 +1,18 @@
-// src/utils/fetchUsers.ts
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://127.0.0.1:8000";
-const endpoint = "/api/users/"; // ← trailing slash to match your backend
+const baseUrl = '/api/users';
+
+export async function fetchUsers() {
+  try {
+    const response = await fetch(baseUrl); 
+    if (!response.ok) {
+      throw new Error('Something went wrong: ' + response.statusText);
+    }
+    const result = await response.json();
+    return result;
+  } catch (error: any) {
+    throw new Error('Failed to fetch users: ' + error.message);
+  }
+}
+
 
 export interface Member {
   member_id?: number;
@@ -19,7 +31,7 @@ export interface Member {
 }
 
 interface ApiMember {
-  id?: number; // your backend might use 'id' instead of 'member_id'
+  id?: number; 
   member_id?: number;
   first_name: string;
   last_name: string;
@@ -36,7 +48,7 @@ interface ApiMember {
 }
 
 export async function getMembers(): Promise<Member[]> {
-  const fullUrl = `${baseUrl}${endpoint}`;
+  const fullUrl = `${baseUrl}`;
   try {
     console.log("Fetching from:", fullUrl);
     const response = await fetch(fullUrl, {
@@ -74,7 +86,7 @@ export async function getMembers(): Promise<Member[]> {
 }
 
 export async function createMember(member: Member): Promise<Member> {
-  const fullUrl = `${baseUrl}${endpoint}`;
+  const fullUrl = `${baseUrl}`;
   const payload = {
     first_name: member.first_name,
     last_name: member.last_name,

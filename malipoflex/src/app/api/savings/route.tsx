@@ -1,10 +1,9 @@
 const baseUrl = process.env.BASE_URL;
-
 export async function GET() {
   try {
-      const response = await fetch(`${baseUrl}loanAccounts/`);
+    const response = await fetch(`${baseUrl}savingsContributions/`);
     if (!response.ok) {
-      return new Response("Failed to fetch loans", { status: response.status });
+      return new Response("Failed to fetch savings", { status: response.status });
     }
     const result = await response.json();
     return new Response(JSON.stringify(result), {

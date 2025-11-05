@@ -1,10 +1,10 @@
-const baseUrl = process.env.BASE_URL;
+const baseUrl = process.env.BASE_URL 
 
 export async function GET() {
   try {
-      const response = await fetch(`${baseUrl}loanAccounts/`);
+    const response = await fetch(`${baseUrl}pensionProvider/`);
     if (!response.ok) {
-      return new Response("Failed to fetch loans", { status: response.status });
+      throw new Error("Failed to fetch transactions : " + response.statusText);
     }
     const result = await response.json();
     return new Response(JSON.stringify(result), {
@@ -18,7 +18,3 @@ export async function GET() {
     });
   }
 }
-
-
-
-

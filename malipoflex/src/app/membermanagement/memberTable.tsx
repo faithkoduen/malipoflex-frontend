@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 import useFetchMembers from "../hooks/useFetchUsers";
-import Sidebar from "../shared-components/sidebar";
 import { Pagination } from "../shared-components/pagination";
 import { SearchInput } from "../shared-components/search";
 import { FilterDropdown } from "../shared-components/filter";
 import MembersModal from "./MembersModal";
+import Header from "../shared-components/header";
 
 export interface Member {
   member_id?: number;
@@ -43,7 +43,6 @@ export default function MembersManagement() {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex">
-        <Sidebar />
         <div className="flex-1 p-8">Loading members...</div>
       </div>
     );
@@ -52,7 +51,6 @@ export default function MembersManagement() {
   if (error) {
     return (
       <div className="min-h-screen bg-white flex">
-        <Sidebar />
         <div className="flex-1 p-8 text-red-500">Error: {error}</div>
       </div>
     );
@@ -88,7 +86,7 @@ export default function MembersManagement() {
 
   return (
     <section className="min-h-screen bg-white flex">
-      <Sidebar />
+      
       <div className="flex-1 p-8">
         <div>
           <h2 className="text-xl font-bold text-[#075D74] mb-4">Member Management</h2>

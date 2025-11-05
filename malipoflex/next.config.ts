@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  turbopack: {
+    root: "/home/student/malipoflex-frontend/malipoflex",
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
