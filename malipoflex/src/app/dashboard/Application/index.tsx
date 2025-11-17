@@ -13,7 +13,6 @@ const formatDateTime = (dateStr: string | null | undefined): string => {
   }
   return date.toLocaleString(); 
 };
-
 function CircleStat({ label, percentage }: { label: string; percentage: number }) {
   return (
     <div className="flex flex-col items-center w-full max-w-xs p-4 bg-white rounded-lg shadow-sm">

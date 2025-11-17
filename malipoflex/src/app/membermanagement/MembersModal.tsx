@@ -51,7 +51,7 @@ export default function MembersModal({
       !newMember.first_name ||
       !newMember.last_name ||
       !newMember.phone_number ||
-      !newMember.password 
+      !newMember.password
     ) {
       setError(
         "First name, last name, phone number, and password are required."
@@ -82,12 +82,16 @@ export default function MembersModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#7eb5c4a6] opacity-85 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 overflow-y-auto"
       onClick={() => setShowModal(false)}
     >
       <div
-        className="relative w-full max-w-md bg-white rounded-lg shadow-lg p-6 mx-4 my-8"
+        className="relative w-full max-w-md bg-white rounded-lg shadow-lg p-4 md:p-6 mx-2 my-6 md:mx-4 md:my-8"
         onClick={(e) => e.stopPropagation()}
+        style={{
+          maxHeight: "90vh",
+          overflowY: "auto",
+        }}
       >
         <h3 className="text-xl font-bold text-[#075D74] text-center mb-4">
           Add New Member
@@ -168,7 +172,7 @@ export default function MembersModal({
           <p className="text-red-500 text-sm text-center mt-3">{error}</p>
         )}
 
-        <div className="flex gap-3 mt-5">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-3 mt-5">
           <button
             type="button"
             onClick={handleSubmit}

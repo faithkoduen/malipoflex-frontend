@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Search, ChevronRight } from "lucide-react"
 import { useFetchPendingLoans } from "../hooks/useFetchLoanaccount"
-import Sidebar from "../shared-components/sidebar/sidebar"
+import Sidebar from "../shared-components/sidebar"
 import { LoansDashboard } from "../loanmanagement/LoansDashboard"
 import { SearchInput } from "../shared-components/search"
 import { FilterDropdown } from "../shared-components/filter"
